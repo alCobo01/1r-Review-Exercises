@@ -9,8 +9,8 @@ namespace reviewexercises
         public static void Main(string[] args)
         {
             const string FirstMessage = "Write a character string: ",
-                FinalMessage = "Is what you entered a postcode? {0}",
-                EmptyStringMessage = "Empty string, try again";
+                FinalMessage = "Is what you entered a postcode? {0} \n",
+                EmptyStringMessage = "Empty string, try again. ";
 
             string? userInput;
             bool isEmpty = false;
@@ -20,6 +20,7 @@ namespace reviewexercises
             {
                 if (isEmpty) { Console.Write(EmptyStringMessage); } ;
                 userInput = Console.ReadLine();
+                isEmpty = true;
             } while (userInput == "");
             
             Console.Write(FinalMessage, IsPostcode(userInput));
