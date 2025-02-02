@@ -9,25 +9,20 @@ namespace reviewexercises
         {
             const string FirstMessage = "Insert your ticket's cost: ",
                 SecondMessage = "Insert the tip percentage you want to give: ",
-                FinalMessage = "The tip that you should give is {0}$",
-                FormatExceptionMessage = "Incorrect format.",
-                OverflowExceptionMessage = "Too large number",
-                GeneralExceptionMessage = "General exception";
+                ThirdMessage = "How many people are going to share the bill? ",
+                FinalMessage = "The expected tip is {0}$, so each one has to pay {1}$";
 
-            int amountMoney, tipPercentage;
+            int amountMoney, tipPercentage, people;
 
             Console.Write(FirstMessage);
-            try
-            {
-                amountMoney = Convert.ToInt32(Console.ReadLine());
-                Console.Write(SecondMessage);
-                tipPercentage = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine(FinalMessage, MyMethods.CalculateTip(amountMoney, tipPercentage));
-            }
-            catch (FormatException) { Console.WriteLine(FormatExceptionMessage); }
-            catch (OverflowException) { Console.WriteLine(OverflowExceptionMessage); }
-            catch (Exception) { Console.WriteLine(GeneralExceptionMessage); }
-            
+            amountMoney = LlegirIntValid();
+            Console.Write(SecondMessage);
+            tipPercentage = LlegirIntValid();
+            Console.Write(ThirdMessage);
+            people = LlegirIntValid();
+            Console.Write(FinalMessage, MyMethods.CalculateTip(amountMoney, tipPercentage), CalculateTip(amountMoney, tipPercentage, people));
+
+
         }
     }
 }
